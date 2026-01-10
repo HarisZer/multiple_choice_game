@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/c296b5a3aa329c68fd4691d7d58fc818"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+
+    <!-- TextView για την ερώτηση -->
+    <TextView
+        android:id="@+id/tvQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="24dp"
+        android:text="Ερώτηση θα εμφανιστεί εδώ"
+        android:textColor="#B3E1FA"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Χρόνος: 30"
+        android:textColor="#B3E1FA"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="1 / 10"
+        android:textColor="#B3E1FA"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/ivQuestionImage"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="12dp"
+        android:scaleType="fitCenter"
+        android:visibility="gone" />
+
+
+    <!-- Κουμπιά απαντήσεων -->
+    <Button
+        android:id="@+id/btnAnswer1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Απάντηση 1"
+        app:cornerRadius="8sp" />
+
+    <Button
+        android:id="@+id/btnAnswer2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Απάντηση 2"
+        app:cornerRadius="8sp" />
+
+    <Button
+        android:id="@+id/btnAnswer3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Απάντηση 3"
+        app:cornerRadius="8sp" />
+
+    <!-- Κουμπί επόμενη ερώτηση -->
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Επόμενη Ερώτηση"
+        app:cornerRadius="8sp" />
+
+
+</LinearLayout>

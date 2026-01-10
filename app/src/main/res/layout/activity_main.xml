@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/c296b5a3aa329c68fd4691d7d58fc818"
+    android:backgroundTintMode="src_atop"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/TvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:fontFamily="@font/audiowide"
+        android:rotationX="31"
+        android:text="KNOWLEDGE GAME"
+        android:textColor="#FFC400"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/BtnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="175dp"
+        android:backgroundTint="#046EA3"
+        android:fontFamily="@font/audiowide"
+        android:text=" Έναρξη Παιχνιδιού"
+        android:textColor="#A1CC05"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:cornerRadius="5sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TvTitle" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="192dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:fontFamily="@font/audiowide"
+        android:inputType="textMultiLine"
+        android:text="Ανάπτυξη:\nΚαϊταντζίδης Δημήτρης\nΚατσαρού Αναστασία\nΖερβουδάκης Χαρίλαος"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FFC400"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BtnStart" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

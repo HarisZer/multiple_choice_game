@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.MultipleChoice" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Βάλε εδώ το background που θες για ΟΛΗ την εφαρμογή -->
+        <item name="android:windowBackground">@drawable/c296b5a3aa329c68fd4691d7d58fc818</item>
+    </style>
+
+    <style name="Theme.MultipleChoice" parent="Base.Theme.MultipleChoice" />
+
+</resources>
