@@ -32,6 +32,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
         holder.tvName.setText("Όνομα: " + r.getName());
         holder.tvAM.setText("ΑΜ: " + r.getAm());
         holder.tvScore.setText("Σκορ: " + r.getScore());
+        holder.tvAge.setText("Ηλικία: " + r.getAge());
         holder.tvDate.setText("Ημερομηνία: " + r.getDateTime());
 
     }
@@ -42,14 +43,16 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
     }
 
     static class ResultViewHolder extends RecyclerView.ViewHolder {
-        TextView tvName, tvAM, tvScore, tvDate;
+        TextView tvName, tvAM, tvScore, tvAge,tvDate;
 
         public ResultViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
             tvAM = itemView.findViewById(R.id.tvAM);
             tvScore = itemView.findViewById(R.id.tvScore);
+            tvAge = itemView.findViewById(R.id.tvAge);
             tvDate = itemView.findViewById(R.id.tvDate);
+
         }
     }
 }

@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="24dp"
         android:text="Στοιχεία Εξεταζόμενου"
-        android:textColor="#B3E1FA"
+        android:textColor="#4CC6D6"
         android:textSize="22sp"
         android:textStyle="bold" />
 
@@ -24,11 +24,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#FF9100"
+        android:backgroundTintMode="src_in"
         android:gravity="center_vertical"
         android:hint="Όνομα"
-        android:backgroundTintMode="src_in"
         android:padding="12dp"
-        android:textColor="#00B0FF"
+        android:textColor="#b3ecff"
         android:textColorHint="#64CCF8FD"
         tools:visibility="visible" />
 
@@ -37,11 +37,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#FF9100"
-        android:hint="Αριθμός Μητρώου (προαιρετικό)"
         android:backgroundTintMode="src_in"
+        android:hint="Αριθμός Μητρώου"
         android:inputType="text"
         android:padding="12dp"
-        android:textColor="#00B0FF"
+        android:textColor="#b3ecff"
         android:textColorHint="#64CCF8FD" />
 
     <EditText
@@ -49,11 +49,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#FF9100"
-        android:hint="Ηλικία"
         android:backgroundTintMode="src_in"
+        android:hint="Ηλικία"
         android:inputType="number"
         android:padding="12dp"
-        android:textColor="#00B0FF"
+        android:textColor="#b3ecff"
         android:textColorHint="#64CCF8FD" />
 
 
@@ -62,6 +62,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Ξεκίνα Τεστ"
+        android:backgroundTint="#009999"
+        android:text="Εκκίνηση Τεστ"
         app:cornerRadius="8sp" />
+
+
+
+    <Button
+        android:id="@+id/btnHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#009999"
+        android:text="Ιστορικό Αποτελεσμάτων"
+        app:cornerRadius="8sp"/>
+
 </LinearLayout>

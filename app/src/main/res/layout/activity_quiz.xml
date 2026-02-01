@@ -10,7 +10,7 @@
     android:padding="24dp">
 
 
-    <!-- TextView για την ερώτηση -->
+
     <TextView
         android:id="@+id/tvQuestion"
         android:layout_width="wrap_content"
@@ -49,12 +49,13 @@
         android:visibility="gone" />
 
 
-    <!-- Κουμπιά απαντήσεων -->
+
     <Button
         android:id="@+id/btnAnswer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
+        android:backgroundTint="#009999"
         android:text="Απάντηση 1"
         app:cornerRadius="8sp" />
 
@@ -63,6 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
+        android:backgroundTint="#009999"
         android:text="Απάντηση 2"
         app:cornerRadius="8sp" />
 
@@ -71,15 +73,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
+        android:backgroundTint="#009999"
         android:text="Απάντηση 3"
         app:cornerRadius="8sp" />
 
-    <!-- Κουμπί επόμενη ερώτηση -->
+
     <Button
         android:id="@+id/btnNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:backgroundTint="#950495"
         android:text="Επόμενη Ερώτηση"
         app:cornerRadius="8sp" />
 

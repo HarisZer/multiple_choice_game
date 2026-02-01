@@ -26,6 +26,14 @@ public class StudentInfo extends AppCompatActivity {
         NbAge = findViewById(R.id.NbAge);
         BtnNext = findViewById(R.id.BtnNext);
 
+        Button btnHistory = findViewById(R.id.btnHistory);
+
+        btnHistory.setOnClickListener(v -> {
+            Intent intent = new Intent(this, ResultListActivity.class);
+            startActivity(intent);
+        });
+
+
         BtnNext.setOnClickListener(v -> {
             String name = EtName.getText().toString().trim();
             String am = EtAM.getText().toString().trim();

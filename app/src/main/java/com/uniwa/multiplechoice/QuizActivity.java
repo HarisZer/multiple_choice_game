@@ -146,10 +146,16 @@ public class QuizActivity extends AppCompatActivity {
             timeLeft = 30;
             loadQuestion();
             startTimer();
-        } else {
+        }else {
             if (timer != null) timer.cancel();
             saveResult();
-            Intent intent = new Intent(this, ResultListActivity.class);
+
+            Intent intent = new Intent(this, ResultActivity.class);
+            intent.putExtra("name", getIntent().getStringExtra("name"));
+            intent.putExtra("am", getIntent().getStringExtra("am"));
+            intent.putExtra("score", score);
+            intent.putExtra("total", quizQuestions.size());
+
             startActivity(intent);
             finish();
         }

@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MultipleChoice">
+        <activity android:name=".ResultActivity" />
+
         <activity
             android:name=".ResultListActivity"
             android:exported="false" />

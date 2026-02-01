@@ -28,6 +28,9 @@ public class ResultListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_list);
 
+
+
+
         rvResults = findViewById(R.id.recyclerViewResults);
         rvResults.setLayoutManager(new LinearLayoutManager(this));
 
@@ -42,6 +45,22 @@ public class ResultListActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+
+        Button btnClearHistory = findViewById(R.id.btnClearHistory);
+
+        btnClearHistory.setOnClickListener(v -> {
+            // Καθαρίζει το SharedPreferences
+            getSharedPreferences("results", Context.MODE_PRIVATE)
+                    .edit()
+                    .remove("results_list")
+                    .apply();
+
+            // Καθαρίζει τη λίστα και ενημερώνει τον Adapter
+            results.clear();
+            rvResults.getAdapter().notifyDataSetChanged();
+        });
+
+
     }
 
     private List<Result> loadResults() {
