@@ -76,7 +76,7 @@
         android:id="@+id/editTextText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="224dp"
         android:background="@android:color/transparent"
         android:ems="10"
         android:fontFamily="@font/audiowide"

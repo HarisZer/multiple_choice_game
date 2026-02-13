@@ -69,7 +69,13 @@ public class QuizActivity extends AppCompatActivity {
         BtnAnswer2.setOnClickListener(v -> selectAnswer(1, BtnAnswer2));
         BtnAnswer3.setOnClickListener(v -> selectAnswer(2, BtnAnswer3));
 
-        BtnSubmit.setOnClickListener(v -> submitAnswer());
+        BtnSubmit.setOnClickListener(v -> {
+            if (selectedAnswerIndex == -1) {
+                Toast.makeText(this, "Επίλεξε πρώτα απάντηση", Toast.LENGTH_SHORT).show();
+            } else {
+                submitAnswer();
+            }
+        });
     }
 
     private void loadQuestionsFromJson() {
@@ -83,18 +89,11 @@ public class QuizActivity extends AppCompatActivity {
             Gson gson = new Gson();
             QuestionsPool pool = gson.fromJson(json, QuestionsPool.class);
 
-            if (pool == null || pool.questions == null) {
-                Toast.makeText(this, "Σφάλμα: JSON κενό ή λανθασμένο", Toast.LENGTH_LONG).show();
-                return;
+            if (pool != null && pool.questions != null) {
+                Collections.shuffle(pool.questions);
+                quizQuestions = new ArrayList<>(pool.questions.subList(0, Math.min(10, pool.questions.size())));
             }
-
-
-            Collections.shuffle(pool.questions);
-            quizQuestions = new ArrayList<>(pool.questions.subList(0, Math.min(10, pool.questions.size())));
-            Collections.shuffle(quizQuestions);
-
         } catch (Exception e) {
-            Toast.makeText(this, "Σφάλμα φόρτωσης JSON", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
     }
@@ -131,13 +130,12 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void submitAnswer() {
-        if (selectedAnswerIndex == -1) {
-            Toast.makeText(this, "Επίλεξε πρώτα απάντηση", Toast.LENGTH_SHORT).show();
-            return;
-        }
+        if (timer != null) timer.cancel();
 
-        if (selectedAnswerIndex == quizQuestions.get(currentQuestion).answer) {
-            score++;
+        if (selectedAnswerIndex != -1) {
+            if (selectedAnswerIndex == quizQuestions.get(currentQuestion).answer) {
+                score++;
+            }
         }
 
         currentQuestion++;
@@ -146,16 +144,13 @@ public class QuizActivity extends AppCompatActivity {
             timeLeft = 30;
             loadQuestion();
             startTimer();
-        }else {
-            if (timer != null) timer.cancel();
+        } else {
             saveResult();
-
             Intent intent = new Intent(this, ResultActivity.class);
             intent.putExtra("name", getIntent().getStringExtra("name"));
             intent.putExtra("am", getIntent().getStringExtra("am"));
             intent.putExtra("score", score);
             intent.putExtra("total", quizQuestions.size());
-
             startActivity(intent);
             finish();
         }
@@ -169,12 +164,13 @@ public class QuizActivity extends AppCompatActivity {
 
     private void startTimer() {
         if (timer != null) timer.cancel();
+        timeLeft = 30;
         TvTimer.setText("Χρόνος: " + timeLeft);
 
-        timer = new CountDownTimer(timeLeft * 1000L, 1000) {
+        timer = new CountDownTimer(30000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                timeLeft--;
+                timeLeft = (int) (millisUntilFinished / 1000);
                 TvTimer.setText("Χρόνος: " + timeLeft);
             }
 
@@ -194,14 +190,18 @@ public class QuizActivity extends AppCompatActivity {
 
         if (results == null) results = new ArrayList<>();
 
-        String name = getIntent().getStringExtra("name"); // Από StudentInfo
+        String name = getIntent().getStringExtra("name");
         String am = getIntent().getStringExtra("am");
         String age = getIntent().getStringExtra("age");
         String dateTime = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date());
 
         results.add(new Result(name, am, age, score, dateTime));
+        prefs.edit().putString("results_list", gson.toJson(results)).apply();
+    }
 
-        String newJson = gson.toJson(results);
-        prefs.edit().putString("results_list", newJson).apply();
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (timer != null) timer.cancel();
     }
 }
